@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where We've Been · Rachel &amp; Ciarán</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Where We've Been</h1>
+    <p class="subtitle">Rachel &amp; Ciarán</p>
+  </header>
+
+  <div id="map-container">
+    <svg id="map"></svg>
+  </div>
+
+  <div id="tooltip"></div>
+
+  <aside id="legend">
+    <div class="legend-row">
+      <span class="pip together"></span>
+      <span>Together</span>
+    </div>
+    <div class="legend-row">
+      <span class="pip ciaran"></span>
+      <span>Ciarán</span>
+    </div>
+    <div class="legend-row">
+      <span class="pip rachel"></span>
+      <span>Rachel</span>
+    </div>
+  </aside>
+
+  <aside id="stats">
+    <div class="stat">
+      <span class="stat-n together" id="n-together">–</span>
+      <span class="stat-l">together</span>
+    </div>
+    <div class="rule"></div>
+    <div class="stat">
+      <span class="stat-n ciaran" id="n-ciaran">–</span>
+      <span class="stat-l">Ciarán</span>
+    </div>
+    <div class="rule"></div>
+    <div class="stat">
+      <span class="stat-n rachel" id="n-rachel">–</span>
+      <span class="stat-l">Rachel</span>
+    </div>
+  </aside>
+
+  <p id="hint">scroll to zoom · drag to pan</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>
