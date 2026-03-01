@@ -360,9 +360,10 @@ function parseCSV(text) {
     .filter(l => l.trim())
     .map(l => {
       const cols = parseCSVLine(l);
-      const category = normalizeCategory(cols[ca] || "");
-      if (!category) {
-        console.warn(`Unrecognised category: "${cols[ca]}" for "${cols[ci]}" — expected: together, ciaran, rachel`);
+      const raw = (cols[ca] || "").trim();
+      const category = normalizeCategory(raw);
+      if (raw && !category) {
+        console.warn(`Unrecognised category: "${raw}" for "${cols[ci]}" — expected: Both Visited, Ciarán alone, Rachel alone`);
       }
       return { country: (cols[ci] || "").trim(), category };
     })
