@@ -415,8 +415,8 @@ function renderMap(world, rows) {
     if (cat in counts) counts[cat]++;
   }
   document.getElementById("n-together").textContent = counts.together;
-  document.getElementById("n-ciaran").textContent   = counts.ciaran;
-  document.getElementById("n-rachel").textContent   = counts.rachel;
+  document.getElementById("n-ciaran").textContent   = counts.ciaran + counts.together;
+  document.getElementById("n-rachel").textContent   = counts.rachel + counts.together;
 
   // SVG setup — fixed viewBox, CSS handles scaling
   const W = 960, H = 540;
