@@ -399,11 +399,19 @@ async function fetchCountries() {
 // ─── Map rendering ────────────────────────────────────────────────────────────
 
 function renderMap(world, rows) {
-  // Build visitedMap and warn on unknowns
+  // Build visitedMap and warn on unknowns.
+  // When multiple rows map to the same polygon (e.g. England + Wales → UK),
+  // merge: if either person has been, they get credit; if both have, it's together.
+  function mergeCategory(existing, incoming) {
+    if (!existing) return incoming;
+    if (existing === incoming) return existing;
+    return "together"; // one is ciaran, other is rachel — both have been
+  }
+
   for (const { country, category } of rows) {
     const id = NAME_TO_ID[country.toLowerCase().trim()];
     if (id !== undefined) {
-      visitedMap.set(id, category);
+      visitedMap.set(id, mergeCategory(visitedMap.get(id), category));
     } else {
       console.warn(`Unrecognised country: "${country}" — check spelling or add an alias in map.js`);
     }
