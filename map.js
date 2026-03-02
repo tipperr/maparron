@@ -279,6 +279,10 @@ const ALIASES = {
   "curaçao":                      531,
   "puerto rico":                  630,
   "bonaire":                      535,
+  "bermuda":                      60,
+  "kosovo":                       383,
+  "turks and caicos":             796,
+  "turks and caicos islands":     796,
 };
 
 for (const [alias, id] of Object.entries(ALIASES)) {
